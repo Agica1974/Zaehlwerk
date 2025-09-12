@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <script src="script.js"></script>
+    <title>Zählwerktabelle</title>
+</head>
+<body>
+   
+   
+  <div class="flex-container">
+    <div class="technoform">Technoform</div>
+    <div class="zählwerktabelle">Zählwerktabelle
+    
+    </div>
+    <div class="anlagen-nr">Anlagen Nr.: Ex <select id="anlagenAuswahlListe" class="anlagenAuswahlListeStyle" name="AnlagenListe">
+            <option>010</option>
+            <option>011</option>
+            <option>020</option>
+            <option>021</option>
+            <option>030</option>
+            <option>031</option>
+            <option>040</option>
+            <option>041</option>
+            <option>050</option>
+            <option>051</option>
+            <option>060</option>
+            <option>061</option>
+            <option>070</option>
+            <option>071</option>
+            <option>080</option>
+            <option>081</option>
+            <option>090</option>
+            <option>091</option>
+
+
+    </select>
+   
+    <div class = entleerenButton><button id="resetButton" class = "resetButton" >Entleeren</button></div>
+</div>
+
+
+
+   <table>
+
+  
+  
+     <tr>
+
+     <td><label for="datum">Datum:</label></td>
+
+     <td><label for="schicht">Schicht:</label></td>
+
+     <td><label for="zaehlwerk">Zählwerk:</label></td>
+
+     <td><label for="stueckzahl-palette">Stückzahl-Palette:<br>
+
+      <label for="neuerAuftragCheckbox_1">neuer Auftrag
+
+              <input type="checkbox" id="neuerAuftragCheckbox_1"></label>
+
+     <td><label for="stueckzahl-palettenwechseln">Stückzahl-Palettenwechsel:<br>
+      <label for = "zweitePaletteCheckbox_1"> zweite Palette</label>
+      <input type="checkbox" id="zweitePaletteCheckbox_1"></label></td>
+
+      <td><label for="datum">Datum:</label></td>
+
+     <td><label for="schicht">Schicht:</label></td>
+
+     <td><label for="zaehlwerk">Zählwerk:</label></td>
+
+     <td><label for="stueckzahl-palette">Stückzahl-Palette:<br>
+
+      <label for="neuerAuftragCheckbox_2">neuer Auftrag
+
+              <input type="checkbox" id="neuerAuftragCheckbox_2"></label>
+
+     <td><label for="stueckzahl-palettenwechseln">Stückzahl-Palettenwechsel:<br>
+      <label for = "zweitePaletteCheckbox_2"> zweite Palette</label>
+      <input type="checkbox" id="zweitePaletteCheckbox_2"></label></td>
+     
+     
+
+     </tr>
+
+     <tr>
+
+    <td><input type="date" id="datum1" ></td>
+
+     <td><select id="schicht1" name="schicht">
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+     <td><input type="number" id="zaehlwerk-1" value="0" class="invisible-value" readonly></td>
+
+     <td><input type="number" id="stueckzahl-palette-1" value="0" class="invisible-value" onclick="editStueckzahl(1)"></td>
+     
+     <td> <input type="number" id="stueckzahl-palettenwechseln-1"value="0" class="invisible-value" onclick="editPalettenWechsel(1)">
+      <span id="zweiterPalettenwechselContainer-1" style="display: none;">
+        
+      <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-1" value="0">  </span></td>
+     <!-- Zusätzliches unsichtbares Input-Feld für den zweiten Wert des Palettenwechsels -->
+
+    
+     
+
+     <td><input type="date" id="datum19" ></td>
+
+     <td><select id="schicht19" name="schicht">
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+     <td><input type="number" id="zaehlwerk-19" value="0" class="invisible-value" readonly></td>
+
+     <td><input type="number" id="stueckzahl-palette-19" value="0" class="invisible-value" onclick="editStueckzahl(19)"></td>
+
+     <td><input type="number" id="stueckzahl-palettenwechseln-19"value="0" class="invisible-value" onclick="editPalettenWechsel(19)" >
+      <span id="zweiterPalettenwechselContainer-19" style="display: none;">
+        
+        <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-19" value="0"> </span></td>
+       <!-- Zusätzliches unsichtbares Input-Feld für den zweiten Wert des Palettenwechsels --></td>
+     
+
+     </tr>
+
+     <tr>
+
+       <td><input type="date" id="datum2"></td>
+
+       <td><select id="schicht2" name="schicht" >
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-2" value="0" class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-2" value="0" class="invisible-value" onclick="editStueckzahl(2)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-2" value="0"class="invisible-value"  onclick="editPalettenWechsel(2)">
+        <span id="zweiterPalettenwechselContainer-2" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-2" value="0">  </span></td>
+
+       <td><input type="date" id="datum20" ></td>
+
+     <td><select id="schicht20" name="schicht">
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+     <td><input type="number" id="zaehlwerk-20" value="0" class="invisible-value" readonly></td>
+
+     <td><input type="number" id="stueckzahl-palette-20" value="0" class="invisible-value" onclick="editStueckzahl(20)"></td>
+
+     <td><input type="number" id="stueckzahl-palettenwechseln-20"value="0" class="invisible-value" onclick="editPalettenWechsel(20)" >
+       <span id="zweiterPalettenwechselContainer-20" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-20" value="0">  </span></td>
+
+     </tr>
+
+     <tr>
+
+       <td><input type="date" id="datum3" ></td>
+
+       <td><select id="schicht3" name="schicht">
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-3" value="0"class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-3" value="0" class="invisible-value" onclick="editStueckzahl(3)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-3" value="0" class="invisible-value" onclick="editPalettenWechsel(3)">
+       <span id="zweiterPalettenwechselContainer-3" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-3" value="0">  </span></td>
+
+       <td><input type="date" id="datum21"></td>
+
+       <td><select id="schicht21" name="schicht" >
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-21" value="0" class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-21" value="0" class="invisible-value" onclick="editStueckzahl(21)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-21" value="0"class="invisible-value"  onclick="editPalettenWechsel(21)">
+       <span id="zweiterPalettenwechselContainer-21" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-21" value="0">  </span></td>
+
+     </tr>
+
+     <tr>
+
+       <td><input type="date" id="datum4" ></td>
+
+       <td><select id="schicht4" name="schicht" >
+
+         <option value="1">Frühschicht</option>
+
+         <option value="2">Spätschicht</option>
+
+         <option value="3">Nachtschicht</option>
+
+       </select> </td>
+
+       <td><input type="number" id="zaehlwerk-4" value="0"class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-4" value="0" class="invisible-value" onclick="editStueckzahl(4)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-4" value="0" class="invisible-value" onclick="editPalettenWechsel(4)">
+       <span id="zweiterPalettenwechselContainer-4" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-4" value="0">  </span></td>
+
+       <td><input type="date" id="datum22"></td>
+
+       <td><select id="schicht22" name="schicht" >
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-22" value="0" class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-22" value="0" class="invisible-value" onclick="editStueckzahl(22)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-22" value="0"class="invisible-value"  onclick="editPalettenWechsel(22)">
+       <span id="zweiterPalettenwechselContainer-22" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-22" value="0">  </span></td>
+
+       </tr>
+
+       <tr>
+
+         <td><input type="date" id="datum5" ></td>
+
+         <td><select id="schicht5" name="schicht">
+
+         <option value="1">Frühschicht</option>
+
+         <option value="2">Spätschicht</option>
+
+         <option value="3">Nachtschicht</option>
+
+       </select> </td>
+
+         <td><input type="number" id="zaehlwerk-5" value="0" class="invisible-value" readonly></td>
+
+         <td><input type="number" id="stueckzahl-palette-5" value="0" class="invisible-value" onclick="editStueckzahl(5)"></td>
+
+         <td><input type="number" id="stueckzahl-palettenwechseln-5"value="0" class="invisible-value" onclick="editPalettenWechsel(5)">
+         <span id="zweiterPalettenwechselContainer-5" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-5" value="0">  </span></td>
+
+         <td><input type="date" id="datum23"></td>
+
+       <td><select id="schicht23" name="schicht" >
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-23" value="0" class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-23" value="0" class="invisible-value" onclick="editStueckzahl(23)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-23" value="0"class="invisible-value"  onclick="editPalettenWechsel(23)">
+       <span id="zweiterPalettenwechselContainer-23" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-23" value="0">  </span></td>
+
+       </tr>
+
+       <tr>
+
+         <td><input type="date" id="datum6" ></td>
+
+         <td><select id="schicht6" name="schicht" >
+
+           <option value="1">Frühschicht</option>
+
+           <option value="2">Spätschicht</option>
+
+           <option value="3">Nachtschicht</option>
+
+         </select> </td>
+
+         <td><input type="number" id="zaehlwerk-6" value="0"class="invisible-value" readonly></td>
+
+         <td><input type="number" id="stueckzahl-palette-6" value="0"class="invisible-value" onclick="editStueckzahl(6)"></td>
+
+         <td><input type="number" id="stueckzahl-palettenwechseln-6" value="0" class="invisible-value" onclick="editPalettenWechsel(6)">
+         <span id="zweiterPalettenwechselContainer-6" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-6" value="0">  </span></td>
+
+         <td><input type="date" id="datum24"></td>
+
+       <td><select id="schicht24" name="schicht" >
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-24" value="0" class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-24" value="0" class="invisible-value" onclick="editStueckzahl(24)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-24" value="0"class="invisible-value"  onclick="editPalettenWechsel(24)">
+       <span id="zweiterPalettenwechselContainer-24" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-24" value="0">  </span></td>
+
+         </tr>
+
+         <tr>
+
+         <td><input type="date" id="datum7" ></td>
+
+         <td><select id="schicht7" name="schicht">
+
+           <option value="1">Frühschicht</option>
+
+           <option value="2">Spätschicht</option>
+
+           <option value="3">Nachtschicht</option>
+
+         </select> </td>
+
+         <td><input type="number" id="zaehlwerk-7" value="0" class="invisible-value" readonly></td>
+
+         <td><input type="number" id="stueckzahl-palette-7" value="0" class="invisible-value" onclick="editStueckzahl(7)"></td>
+
+         <td><input type="number" id="stueckzahl-palettenwechseln-7" value="0" class="invisible-value" onclick="editPalettenWechsel(7)">
+         <span id="zweiterPalettenwechselContainer-7" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-7" value="0">  </span></td>
+
+         <td><input type="date" id="datum25"></td>
+
+       <td><select id="schicht25" name="schicht" >
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-25" value="0" class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-25" value="0" class="invisible-value" onclick="editStueckzahl(25)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-25" value="0"class="invisible-value"  onclick="editPalettenWechsel(25)">
+       <span id="zweiterPalettenwechselContainer-25" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-25" value="0">  </span></td>
+
+         </tr>
+
+         <tr>
+
+           <td><input type="date" id="datum8" ></td>
+
+           <td><select id="schicht8" name="schicht" >
+
+           <option value="1">Frühschicht</option>
+
+           <option value="2">Spätschicht</option>
+
+           <option value="3">Nachtschicht</option>
+
+         </select> </td>
+
+           <td><input type="number" id="zaehlwerk-8" value="0"class="invisible-value" readonly></td>
+
+           <td><input type="number" id="stueckzahl-palette-8" value="0" class="invisible-value"  onclick="editStueckzahl(8)"></td>
+
+           <td><input type="number" id="stueckzahl-palettenwechseln-8" value="0" class="invisible-value"  onclick="editPalettenWechsel(8)">
+           <span id="zweiterPalettenwechselContainer-8" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-8" value="0">  </span></td>
+
+           <td><input type="date" id="datum26"></td>
+
+       <td><select id="schicht26" name="schicht" >
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-26" value="0" class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-26" value="0" class="invisible-value" onclick="editStueckzahl(26)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-26" value="0"class="invisible-value"  onclick="editPalettenWechsel(26)">
+       <span id="zweiterPalettenwechselContainer-26" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-26" value="0">  </span></td>
+
+         </tr>
+         <tr>
+
+          <td><input type="date" id="datum9" ></td>
+
+          <td><select id="schicht9" name="schicht" >
+
+          <option value="1">Frühschicht</option>
+
+          <option value="2">Spätschicht</option>
+
+          <option value="3">Nachtschicht</option>
+
+        </select> </td>
+
+          <td><input type="number" id="zaehlwerk-9" value="0"class="invisible-value" readonly></td>
+
+          <td><input type="number" id="stueckzahl-palette-9" value="0" class="invisible-value"  onclick="editStueckzahl(9)"></td>
+
+          <td><input type="number" id="stueckzahl-palettenwechseln-9" value="0" class="invisible-value"  onclick="editPalettenWechsel(9)">
+           <span id="zweiterPalettenwechselContainer-9" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-9" value="0">  </span></td>
+
+          <td><input type="date" id="datum27"></td>
+
+       <td><select id="schicht27" name="schicht" >
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-27" value="0" class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-27" value="0" class="invisible-value" onclick="editStueckzahl(27)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-27" value="0"class="invisible-value"  onclick="editPalettenWechsel(27)">
+       <span id="zweiterPalettenwechselContainer-27" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-27" value="0">  </span></td>
+
+        </tr>
+        <tr>
+
+          <td><input type="date" id="datum10" ></td>
+
+          <td><select id="schicht10" name="schicht" >
+
+          <option value="1">Frühschicht</option>
+
+          <option value="2">Spätschicht</option>
+
+          <option value="3">Nachtschicht</option>
+
+        </select> </td>
+
+          <td><input type="number" id="zaehlwerk-10" value="0"class="invisible-value" readonly></td>
+
+          <td><input type="number" id="stueckzahl-palette-10" value="0" class="invisible-value"  onclick="editStueckzahl(10)"></td>
+
+          <td><input type="number" id="stueckzahl-palettenwechseln-10" value="0" class="invisible-value"  onclick="editPalettenWechsel(10)">
+           <span id="zweiterPalettenwechselContainer-10" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-10" value="0">  </span></td>
+
+          <td><input type="date" id="datum28"></td>
+
+       <td><select id="schicht28" name="schicht" >
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-28" value="0" class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-28" value="0" class="invisible-value" onclick="editStueckzahl(28)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-28" value="0"class="invisible-value"  onclick="editPalettenWechsel(28)">
+       <span id="zweiterPalettenwechselContainer-28" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-28" value="0">  </span></td>
+
+        </tr>
+        <tr>
+
+          <td><input type="date" id="datum11" ></td>
+
+          <td><select id="schicht11" name="schicht" >
+
+          <option value="1">Frühschicht</option>
+
+          <option value="2">Spätschicht</option>
+
+          <option value="3">Nachtschicht</option>
+
+        </select> </td>
+
+          <td><input type="number" id="zaehlwerk-11" value="0"class="invisible-value" readonly></td>
+
+          <td><input type="number" id="stueckzahl-palette-11" value="0" class="invisible-value"  onclick="editStueckzahl(11)"></td>
+
+          <td><input type="number" id="stueckzahl-palettenwechseln-11" value="0" class="invisible-value"  onclick="editPalettenWechsel(11)">
+           <span id="zweiterPalettenwechselContainer-11" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-11" value="0">  </span></td>
+
+          <td><input type="date" id="datum29"></td>
+
+       <td><select id="schicht29" name="schicht" >
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-29" value="0" class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-29" value="0" class="invisible-value" onclick="editStueckzahl(29)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-29" value="0"class="invisible-value"  onclick="editPalettenWechsel(29)">
+       <span id="zweiterPalettenwechselContainer-29" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-29" value="0">  </span></td>
+
+        </tr>
+        <tr>
+
+          <td><input type="date" id="datum12" ></td>
+
+          <td><select id="schicht12" name="schicht" >
+
+          <option value="1">Frühschicht</option>
+
+          <option value="2">Spätschicht</option>
+
+          <option value="3">Nachtschicht</option>
+
+        </select> </td>
+
+          <td><input type="number" id="zaehlwerk-12" value="0"class="invisible-value" readonly></td>
+
+          <td><input type="number" id="stueckzahl-palette-12" value="0" class="invisible-value"  onclick="editStueckzahl(12)"></td>
+
+          <td><input type="number" id="stueckzahl-palettenwechseln-12" value="0" class="invisible-value"  onclick="editPalettenWechsel(12)">
+           <span id="zweiterPalettenwechselContainer-12" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-12" value="0">  </span></td>
+
+          <td><input type="date" id="datum30"></td>
+
+       <td><select id="schicht30" name="schicht" >
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-30" value="0" class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-30" value="0" class="invisible-value" onclick="editStueckzahl(30)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-30" value="0"class="invisible-value"  onclick="editPalettenWechsel(30)">
+       <span id="zweiterPalettenwechselContainer-30" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-30" value="0">  </span></td>
+
+        </tr>
+        <tr>
+
+          <td><input type="date" id="datum13" ></td>
+
+          <td><select id="schicht13" name="schicht" >
+
+          <option value="1">Frühschicht</option>
+
+          <option value="2">Spätschicht</option>
+
+          <option value="3">Nachtschicht</option>
+
+        </select> </td>
+
+          <td><input type="number" id="zaehlwerk-13" value="0"class="invisible-value" readonly></td>
+
+          <td><input type="number" id="stueckzahl-palette-13" value="0" class="invisible-value"  onclick="editStueckzahl(13)"></td>
+
+          <td><input type="number" id="stueckzahl-palettenwechseln-13" value="0" class="invisible-value"  onclick="editPalettenWechsel(13)">
+           <span id="zweiterPalettenwechselContainer-13" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-13" value="0">  </span></td>
+
+          <td><input type="date" id="datum31" ></td>
+
+       <td><select id="schicht31" name="schicht">
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-31" value="0"class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-31" value="0" class="invisible-value" onclick="editStueckzahl(31)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-31" value="0" class="invisible-value" onclick="editPalettenWechsel(31)">
+       <span id="zweiterPalettenwechselContainer-31" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-31" value="0">  </span></td>
+
+        </tr>
+        <tr>
+
+          <td><input type="date" id="datum14" ></td>
+
+          <td><select id="schicht14" name="schicht" >
+
+          <option value="1">Frühschicht</option>
+
+          <option value="2">Spätschicht</option>
+
+          <option value="3">Nachtschicht</option>
+
+        </select> </td>
+
+          <td><input type="number" id="zaehlwerk-14" value="0"class="invisible-value" readonly></td>
+
+          <td><input type="number" id="stueckzahl-palette-14" value="0" class="invisible-value"  onclick="editStueckzahl(14)"></td>
+
+          <td><input type="number" id="stueckzahl-palettenwechseln-14" value="0" class="invisible-value"  onclick="editPalettenWechsel(14)">
+           <span id="zweiterPalettenwechselContainer-14" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-14" value="0">  </span></td>
+
+          <td><input type="date" id="datum32" ></td>
+
+       <td><select id="schicht32" name="schicht">
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-32" value="0"class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-32" value="0" class="invisible-value" onclick="editStueckzahl(32)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-32" value="0" class="invisible-value" onclick="editPalettenWechsel(32)">
+       <span id="zweiterPalettenwechselContainer-32" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-32" value="0">  </span></td>
+
+        </tr>
+        <tr>
+
+          <td><input type="date" id="datum15" ></td>
+
+          <td><select id="schicht15" name="schicht" >
+
+          <option value="1">Frühschicht</option>
+
+          <option value="2">Spätschicht</option>
+
+          <option value="3">Nachtschicht</option>
+
+        </select> </td>
+
+          <td><input type="number" id="zaehlwerk-15" value="0"class="invisible-value" readonly></td>
+
+          <td><input type="number" id="stueckzahl-palette-15" value="0" class="invisible-value"  onclick="editStueckzahl(15)"></td>
+
+          <td><input type="number" id="stueckzahl-palettenwechseln-15" value="0" class="invisible-value"  onclick="editPalettenWechsel(15)">
+           <span id="zweiterPalettenwechselContainer-15" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-15" value="0">  </span></td>
+
+          <td><input type="date" id="datum33" ></td>
+
+       <td><select id="schicht33" name="schicht">
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-33" value="0"class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-33" value="0" class="invisible-value" onclick="editStueckzahl(33)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-33" value="0" class="invisible-value" onclick="editPalettenWechsel(33)">
+       <span id="zweiterPalettenwechselContainer-33" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-33" value="0">  </span></td>
+
+        </tr>
+        <tr>
+
+          <td><input type="date" id="datum16" ></td>
+
+          <td><select id="schicht16" name="schicht" >
+
+          <option value="1">Frühschicht</option>
+
+          <option value="2">Spätschicht</option>
+
+          <option value="3">Nachtschicht</option>
+
+        </select> </td>
+
+          <td><input type="number" id="zaehlwerk-16" value="0"class="invisible-value" readonly></td>
+
+          <td><input type="number" id="stueckzahl-palette-16" value="0" class="invisible-value"  onclick="editStueckzahl(16)"></td>
+
+          <td><input type="number" id="stueckzahl-palettenwechseln-16" value="0" class="invisible-value"  onclick="editPalettenWechsel(16)">
+           <span id="zweiterPalettenwechselContainer-16" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-16" value="0">  </span></td>
+
+          <td><input type="date" id="datum34" ></td>
+
+       <td><select id="schicht34" name="schicht">
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-34" value="0"class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-34" value="0" class="invisible-value" onclick="editStueckzahl(34)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-34" value="0" class="invisible-value" onclick="editPalettenWechsel(34)">
+       <span id="zweiterPalettenwechselContainer-34" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-34" value="0">  </span></td>
+
+        </tr>
+        <tr>
+
+          <td><input type="date" id="datum17" ></td>
+
+          <td><select id="schicht17" name="schicht" >
+
+          <option value="1">Frühschicht</option>
+
+          <option value="2">Spätschicht</option>
+
+          <option value="3">Nachtschicht</option>
+
+        </select> </td>
+
+          <td><input type="number" id="zaehlwerk-17" value="0"class="invisible-value" readonly></td>
+
+          <td><input type="number" id="stueckzahl-palette-17" value="0" class="invisible-value"  onclick="editStueckzahl(17)"></td>
+
+          <td><input type="number" id="stueckzahl-palettenwechseln-17" value="0" class="invisible-value"  onclick="editPalettenWechsel(17)">
+           <span id="zweiterPalettenwechselContainer-17" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-17" value="0">  </span></td>
+
+          <td><input type="date" id="datum35" ></td>
+
+       <td><select id="schicht35" name="schicht">
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-35" value="0"class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-35" value="0" class="invisible-value" onclick="editStueckzahl(35)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-35" value="0" class="invisible-value" onclick="editPalettenWechsel(35)">
+       <span id="zweiterPalettenwechselContainer-35" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-35" value="0">  </span></td>
+
+        </tr>
+        <tr>
+
+          <td><input type="date" id="datum18" ></td>
+
+          <td><select id="schicht18" name="schicht" >
+
+          <option value="1">Frühschicht</option>
+
+          <option value="2">Spätschicht</option>
+
+          <option value="3">Nachtschicht</option>
+
+        </select> </td>
+
+          <td><input type="number" id="zaehlwerk-18" value="0"class="invisible-value" readonly></td>
+
+          <td><input type="number" id="stueckzahl-palette-18" value="0" class="invisible-value"  onclick="editStueckzahl(18)"></td>
+
+          <td><input type="number" id="stueckzahl-palettenwechseln-18" value="0" class="invisible-value"  onclick="editPalettenWechsel(18)">
+           <span id="zweiterPalettenwechselContainer-18" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-18" value="0">  </span></td>
+
+          <td><input type="date" id="datum36" ></td>
+
+       <td><select id="schicht36" name="schicht">
+
+       <option value="1">Frühschicht</option>
+
+       <option value="2">Spätschicht</option>
+
+       <option value="3">Nachtschicht</option>
+
+     </select> </td>
+
+       <td><input type="number" id="zaehlwerk-36" value="0"class="invisible-value" readonly></td>
+
+       <td><input type="number" id="stueckzahl-palette-36" value="0" class="invisible-value" onclick="editStueckzahl(36)"></td>
+
+       <td><input type="number" id="stueckzahl-palettenwechseln-36" value="0" class="invisible-value" onclick="editPalettenWechsel(36)">
+       <span id="zweiterPalettenwechselContainer-36" style="display: none;">
+        
+          <input type="number" class="zweiteStueckzahl" id="zweiteStueckzahlPalettenwechseln-36" value="0">  </span></td>
+
+        </tr>
+      
+
+   </table>
+</body>
+</html>

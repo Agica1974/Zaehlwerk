@@ -1,0 +1,157 @@
+
+body{
+
+    background-color: whitesmoke;
+
+}
+table {
+width: 100%;
+/* table-layout: fixed; /* Table Layout festlegen */
+
+}
+
+.technoform{
+background-color: white;
+color: black;
+border: 1px solid black;
+display: flex;
+font-size: 40px;
+align-items:baseline;
+justify-content: right;
+padding-right: 15px;
+}
+.zählwerktabelle{
+background-color: white;
+color: black;
+
+display: flex;
+font-size: 30px;
+align-items: center;
+justify-content: center;
+
+}
+.anlagen-nr{
+background-color:rgb(241, 241, 241);
+color: black;
+border: 1px solid black;
+display: flex;
+font-size: 35px;
+align-items:center;
+justify-content: center;
+}
+.anlagenAuswahlListeStyle{
+width: 100px;
+height: 35px;
+font-size: 30px;
+background-color: rgb(241, 241, 241);
+align-items: last baseline;
+position: relative;
+margin-left: 10px;
+cursor: pointer;
+border: none;
+
+}
+
+
+td {
+
+width: 9%;
+border: 1px solid;
+height: 15px;
+font-size: 15px; 
+background-color: white;
+
+}
+
+
+input {
+
+padding: 10px;
+
+width: 88%; 
+
+height: 20px; 
+
+text-align: center;
+
+vertical-align: middle;
+
+border: none;  
+font-size: 15px; 
+
+}
+
+
+select {
+
+width: 100%;
+
+height: 100%;
+font-size: 15px; 
+
+}
+
+label {
+
+display: flex;
+
+align-items: center;
+
+margin-left: 4px; /* beeinflusst die Größe des Checkboxes, wenn zu wenig Platz dann checkbox wird kleiner dargestellt */
+
+}
+
+input[type="date"] {
+width: auto;
+}
+input[type="checkbox"] {
+
+margin-right: 1px;
+
+}
+.zweiteStueckzahl {
+background-color: white;
+border-top: #000 solid 1px;
+}
+.KorrekturLabel {
+font-size: 15px;
+margin-left: 30px;
+}
+button {
+    background-color:whitesmoke;
+    width: 150px;
+    border: 1px solid;
+    border-radius: 6px;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+.resetButton {
+    margin-inline-start:auto;
+    margin-left: 8px;
+    margin-bottom: 5px;
+    
+}
+
+button:hover {
+    background-color:gray;
+    color: white;
+}
+
+/* value = 0 auf Schriftfarbe Weiss umstellen, um unsichtbar zu sein */
+
+.invisible-value {
+
+color: #fff; /* Schriftfarbe auf Hintergrundfarbe setzen */
+
+}
+
+
+
+.invisible-value.has-value {
+
+color: #000; /* Schriftfarbe auf Schwarz ändern, wenn Wert vorhanden ist */
+
+} 
